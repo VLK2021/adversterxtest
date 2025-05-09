@@ -9,8 +9,7 @@ import {UsersFilter} from "../UsersFilter/UsersFilter.jsx";
 
 const UsersComponent = () => {
     const dispatch = useDispatch();
-    const {users} = useSelector(store => store.users);
-
+    const {filteredUsers} = useSelector(store => store.users);
 
     useEffect(() => {
         dispatch(userActions.getAllUsers());
@@ -18,12 +17,12 @@ const UsersComponent = () => {
 
 
     return (
-        <div className={css.wrap}>
-            <div><UsersFilter/></div>
-
-            <div>
-                {users.length > 0 && users
-                .map(obj => <UserComponent key={obj.id} user={obj}/>)}
+        <div className={css.pageWrap}>
+            <UsersFilter/>
+            <div className={css.cardGrid}>
+                {filteredUsers.length > 0 && filteredUsers.map(user => (
+                    <UserComponent key={user.id} user={user}/>
+                ))}
             </div>
         </div>
     );

@@ -1,8 +1,13 @@
-.wrap {
+.pageWrap {
+    padding: 2rem;
+    background-color: #f9fafb;
+    min-height: 100vh;
+}
+
+.cardGrid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 2rem;
-    background-color: #f4f6f8;
+    gap: 2rem;
+    margin-top: 2rem;
 }
